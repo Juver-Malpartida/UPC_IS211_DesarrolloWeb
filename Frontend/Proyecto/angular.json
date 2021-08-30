@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "c8192c2d-3c0f-4f1e-8c87-d14bf8bbbd1e"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "desvinculacion-app": {
+    "Proyecto": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/desvinculacion-app",
+            "outputPath": "dist/Proyecto",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "desvinculacion-app:build:production"
+              "browserTarget": "Proyecto:build:production"
             },
             "development": {
-              "browserTarget": "desvinculacion-app:build:development"
+              "browserTarget": "Proyecto:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "desvinculacion-app:build"
+            "browserTarget": "Proyecto:build"
           }
         },
         "test": {
@@ -102,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "desvinculacion-app"
+  "defaultProject": "Proyecto"
 }
