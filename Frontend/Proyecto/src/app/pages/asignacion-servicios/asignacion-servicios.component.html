@@ -1,22 +1,114 @@
 <div class="container-xl" style="padding-top: 10px;">
-  <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#solicitud">Solicitud de Cese de Personal</a>
+        <a class="nav-link active" data-toggle="tab" href="#solicitud">Solicitud de Cese de Personal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#hojaruta">Hoja de Ruta</a>
+        <a class="nav-link" data-toggle="tab" href="#hojaruta">Hoja de Ruta</a>
         </li>
-       
-      </ul>
+        
+    </ul>
       
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div class="tab-pane container active" id="solicitud">
-            Solicitud de Cese de Personal
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane container active" id="solicitud">
+                <div class="container pt-3">
+                    <h3>Datos del empleado</h3>
+                    <div formGroupName="empleado">
+                        <div class="form-group">
+                            <input id="name" type="text" formControlName="nombres" class="form-control" placeholder="Nombres">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" formControlName="area" class="form-control" placeholder="Área">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" formControlName="cargo" class="form-control" placeholder="Cargo">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" formControlName="fechaInicio" class="form-control" placeholder="Fecha de inicio">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" formControlName="fechaInicio" class="form-control" placeholder="Fecha de inicio">
+                        </div>
+                    </div>
+                </div>
+                <div class="container pt-3">
+                    <h3>Datos de solicitud</h3>
+                    <div formGroupName="solicitud">
+                        <div class="form-group">
+                            <input type="text" formControlName="numero" class="form-control" placeholder="SC-00234">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" formControlName="estado" class="form-control" placeholder="Pendiente">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" formControlName="fechaSolicitud" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" formControlName="fechaCese" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" formControlName="motivo" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" formControlName="archivos" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <textarea formControlName="observacion" class="form-control" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <button (click)="onGuardar()" class="btn btn-outline-primary">Guardar</button>
+                    <button (click)="onAnular()" class="btn btn-outline-primary">Anular</button>
+                    <button (click)="onEliminar()" class="btn btn-outline-primary">Eliminar</button>
+                    <button (click)="onCancelar()" class="btn btn-outline-primary">Cancelar</button> -->
+                </div>
 
+            </div>
+            <div class="tab-pane container fade" id="hojaruta">
+                <div class="container pt-3">
+                    <h3>Servicios asignados al empleado</h3>
+                    <br>
+                    <div formGroupName="empleado">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
+                                    <th>Monto Actual</th>
+                                    <th>Monto Pagado</th>
+                                    <th>Monto Pendiente</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SP-0000454</td>
+                                    <td>Solicitud de Préstamo</td>
+                                    <td><input type="text" value="S/. 2000.00 "></td>
+                                    <td><input type="text" value="S/. 1500.00 "></td>
+                                    <td><input type="text" value="S/. 500.00 "></td>
+                                </tr>
+                                <tr>
+                                    <td>SP-0000454</td>
+                                    <td>Solicitud de Préstamo</td>
+                                    <td><input type="text" value="S/. 2000.00 "></td>
+                                    <td><input type="text" value="S/. 1500.00 "></td>
+                                    <td><input type="text" value="S/. 500.00 "></td>
+                                </tr>
+                                
+                            </tbody>
+                            <tfoot>
+                                <tr>&nbsp;</tr>
+                                <tr>
+                                    <th colspan="4"><label class="pull-right">Total</label> </th>
+                                    <td><input type="text" value="S/. 2800.00"></td>
+                                </tr>
+
+                            </tfoot>
+                          </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="tab-pane container fade" id="hojaruta">
-            Hoja de Ruta
-        </div>
-      </div>
 </div>
