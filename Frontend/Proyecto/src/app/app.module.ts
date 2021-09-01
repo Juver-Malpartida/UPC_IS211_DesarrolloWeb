@@ -10,6 +10,7 @@ import { NuevoComponent } from './Acceso/nuevo/nuevo.component';
 import { FormsModule } from '@angular/forms';
 import { SolicitudDesvinculacionComponent } from './pages/solicitud-desvinculacion/solicitud-desvinculacion.component';
 import { ListarEmpleadosComponent } from './pages/listar-empleados/listar-empleados.component';
+import { AsignacionServiciosComponent } from './pages/asignacion-servicios/asignacion-servicios.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ListarEmpleadosComponent } from './pages/listar-empleados/listar-emplea
     LoginComponent,
     NuevoComponent,
     SolicitudDesvinculacionComponent,
-    ListarEmpleadosComponent
+    ListarEmpleadosComponent,
+    AsignacionServiciosComponent
   ],
 
   imports: [
