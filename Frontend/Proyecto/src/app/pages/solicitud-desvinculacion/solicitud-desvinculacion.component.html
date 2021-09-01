@@ -1,57 +1,93 @@
-<div class="container pt-3">
+<div class="container my-3">
     <form [formGroup]="solicitudForm">
-        <div class="container pt-3">
+        <div class="container p-3 border">
             <h3>Datos del empleado</h3>
-            <button class="btn btn-primary">Buscar empleado</button>
+            <button class="btn btn-primary mb-3">Buscar empleado</button>
             <div formGroupName="empleado">
-                <div class="form-group">
-                    <input id="name" type="text" formControlName="nombres" class="form-control" placeholder="Nombres">
+                <div class="mb-3 row">
+                    <label for="name" class="col-sm-1 col-form-label">Nombres</label>
+                    <div class="col-sm-11">
+                        <input id="name" type="text" formControlName="nombres" class="form-control"
+                            placeholder="Juan Perez">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" formControlName="area" class="form-control" placeholder="Área">
+                <div class="mb-3 row">
+                    <label for="area" class="col-sm-1 col-form-label">Área</label>
+                    <div class="col-sm-5">
+                        <input id="area" type="text" formControlName="area" class="form-control"
+                            placeholder="Contabilidad">
+                    </div>
+                    <label for="cargo" class="col-sm-1 col-form-label">Cargo</label>
+                    <div class="col-sm-5">
+                        <input id="cargo" type="text" formControlName="cargo" class="form-control"
+                            placeholder="Asistente">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" formControlName="cargo" class="form-control" placeholder="Cargo">
-                </div>
-                <div class="form-group">
-                    <input type="date" formControlName="fechaInicio" class="form-control" placeholder="Fecha de inicio">
-                </div>
-                <div class="form-group">
-                    <input type="date" formControlName="fechaInicio" class="form-control" placeholder="Fecha de inicio">
+                <div class="row">
+                    <label for="fechaInicio" class="col-sm-1">Fecha inicio</label>
+                    <div class="col-sm-5">
+                        <input id="fechaInicio" type="date" formControlName="fechaInicio" class="form-control"
+                            placeholder="09/24/2010">
+                    </div>
+                    <label for="fechaFin" class="col-sm-1 col-form-label">Fecha fin</label>
+                    <div class="col-sm-5">
+                        <input id="fechaFin" type="date" formControlName="fechaFin" class="form-control"
+                            placeholder="09/24/2021">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container pt-3">
+        <div class="container p-3 my-3 border">
             <h3>Datos de solicitud</h3>
             <div formGroupName="solicitud">
-                <div class="form-group">
-                    <input type="text" formControlName="numero" class="form-control" placeholder="SC-00234">
+                <div class="row mb-3">
+                    <label for="numero" class="col-sm-1 col-form-label">Número</label>
+                    <div class="col-sm-3">
+                        <input id="numero" type="text" formControlName="numero" class="form-control"
+                            placeholder="SC-00234" readonly>
+                    </div>
+                    <label for="estado" class="col-sm-1 col-form-label">Estado</label>
+                    <div class="col-sm-3">
+                        <input id="estado" type="text" formControlName="estado" class="form-control"
+                            placeholder="Pendiente">
+                    </div>
+                    <label for="fechaSolicitud" class="col-sm-1">Fecha Solicitud</label>
+                    <div class="col-sm-3">
+                        <input id="fechaSolicitud" type="date" formControlName="fechaSolicitud" class="form-control"
+                            placeholder="">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" formControlName="estado" class="form-control" placeholder="Pendiente">
+                <div class="row mb-3">
+                    <label for="fechaCese" class="col-sm-1">Fecha Cese</label>
+                    <div class="col-sm-3">
+                        <input id="fechaCese" type="date" formControlName="fechaCese" class="form-control"
+                            placeholder="">
+                    </div>
+                    <label for="motivo" class="col-sm-1 col-form-label">Motivo</label>
+                    <div class="col-sm-3">
+                        <input id="motivo" type="text" formControlName="motivo" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-4 custom-file">
+                        <input id="adjuntarArchivos" type="file" formControlName="archivos" class="form-control"
+                            lang="es">
+                        <!-- <label for="formFile" class="form-label">Default file input example</label> -->
+                        <!-- <input class="form-control" type="file" id="formFile"> -->
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="date" formControlName="fechaSolicitud" class="form-control" placeholder="">
-                </div>
-                <div class="form-group">
-                    <input type="date" formControlName="fechaCese" class="form-control" placeholder="">
-                </div>
-                <div class="form-group">
-                    <input type="text" formControlName="motivo" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="file" formControlName="archivos" class="form-control">
-                </div>
-                <div class="form-group">
-                    <textarea formControlName="observacion" class="form-control" placeholder=""></textarea>
+                <div class="row">
+                    <label for="observacion" class="col-sm-1 col-form-label">Observacion</label>
+                    <div class="col-sm-11">
+                        <textarea id="observacion" formControlName="observacion" class="form-control"
+                            placeholder=""></textarea>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <button (click)="onGuardar()" class="btn btn-outline-primary">Guardar</button>
-            <button (click)="onAnular()" class="btn btn-outline-primary">Anular</button>
-            <button (click)="onEliminar()" class="btn btn-outline-primary">Eliminar</button>
-            <button (click)="onCancelar()" class="btn btn-outline-primary">Cancelar</button>
+            <button (click)="onGuardar()" class="btn btn-outline-primary mr-3">Guardar</button>
+            <button (click)="onAnular()" class="btn btn-outline-primary mr-3">Anular</button>
+            <button (click)="onEliminar()" class="btn btn-outline-primary mr-3">Eliminar</button>
+            <button (click)="onCancelar()" class="btn btn-outline-primary mr-3">Cancelar</button>
         </div>
     </form>
 </div>
