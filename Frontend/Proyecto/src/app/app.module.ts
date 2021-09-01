@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { SolicitudDesvinculacionComponent } from './pages/solicitud-desvinculacion/solicitud-desvinculacion.component';
 import { ListarEmpleadosComponent } from './pages/listar-empleados/listar-empleados.component';
 import { AsignacionServiciosComponent } from './pages/asignacion-servicios/asignacion-servicios.component';
+import { ResumenHojaRutaComponent } from './pages/resumen-hoja-ruta/resumen-hoja-ruta.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AsignacionServiciosComponent } from './pages/asignacion-servicios/asign
     NuevoComponent,
     SolicitudDesvinculacionComponent,
     ListarEmpleadosComponent,
-    AsignacionServiciosComponent
+    AsignacionServiciosComponent,
+    ResumenHojaRutaComponent
   ],
 
   imports: [
