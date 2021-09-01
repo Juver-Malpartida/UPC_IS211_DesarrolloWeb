@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Acceso/login/login.component';
 import { NuevoComponent } from './Acceso/nuevo/nuevo.component';
 import { FormsModule } from '@angular/forms';
+import { SolicitudDesvinculacionComponent } from './pages/solicitud-desvinculacion/solicitud-desvinculacion.component';
+import { ListarEmpleadosComponent } from './pages/listar-empleados/listar-empleados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NuevoComponent
+    NuevoComponent,
+    SolicitudDesvinculacionComponent,
+    ListarEmpleadosComponent
   ],
 
   imports: [

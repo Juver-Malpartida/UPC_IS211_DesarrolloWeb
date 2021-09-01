@@ -1,0 +1,57 @@
+<div class="container pt-3">
+    <form [formGroup]="solicitudForm">
+        <div class="container pt-3">
+            <h3>Datos del empleado</h3>
+            <button class="btn btn-primary">Buscar empleado</button>
+            <div formGroupName="empleado">
+                <div class="form-group">
+                    <input id="name" type="text" formControlName="nombres" class="form-control" placeholder="Nombres">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="area" class="form-control" placeholder="Área">
+                </div>
+                <div class="form-group">
+                    <input type="email" formControlName="cargo" class="form-control" placeholder="Cargo">
+                </div>
+                <div class="form-group">
+                    <input type="date" formControlName="fechaInicio" class="form-control" placeholder="Fecha de inicio">
+                </div>
+                <div class="form-group">
+                    <input type="date" formControlName="fechaInicio" class="form-control" placeholder="Fecha de inicio">
+                </div>
+            </div>
+        </div>
+        <div class="container pt-3">
+            <h3>Datos de solicitud</h3>
+            <div formGroupName="solicitud">
+                <div class="form-group">
+                    <input type="text" formControlName="numero" class="form-control" placeholder="SC-00234">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="estado" class="form-control" placeholder="Pendiente">
+                </div>
+                <div class="form-group">
+                    <input type="date" formControlName="fechaSolicitud" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                    <input type="date" formControlName="fechaCese" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="motivo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="file" formControlName="archivos" class="form-control">
+                </div>
+                <div class="form-group">
+                    <textarea formControlName="observacion" class="form-control" placeholder=""></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button (click)="onGuardar()" class="btn btn-outline-primary">Guardar</button>
+            <button (click)="onAnular()" class="btn btn-outline-primary">Anular</button>
+            <button (click)="onEliminar()" class="btn btn-outline-primary">Eliminar</button>
+            <button (click)="onCancelar()" class="btn btn-outline-primary">Cancelar</button>
+        </div>
+    </form>
+</div>
