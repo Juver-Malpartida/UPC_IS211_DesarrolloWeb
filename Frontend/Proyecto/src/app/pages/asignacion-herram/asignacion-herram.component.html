@@ -1,0 +1,112 @@
+<div class="container pt-3"> 
+<!--SOLICITUD HERRAMIENTAS-->
+  <div class="abs-center">
+    <form  class="border p-3 form">
+      <div formGroupName="soliHerramientasForm">
+        <div class="form-group" >
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <h1>Herramientas <span class="badge bg-secondary">de TI Asignadas al empleado</span></h1>
+          <table class="table ,nav-link active" id="ps1" >       
+            <thead> 
+              <tr>              
+                <th scope="col">Codigo</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Monto actual</th>
+                <th scope="col">Estado de entrega</th>
+                <th scope="col">Penalidad</th>           
+              </tr>
+            </thead>
+              <tbody>
+                <tr>                 
+                    <td> 
+                      <div class="col">
+                      <input type="text" formControlName="codigo" class="form-control" placeholder="Codigo" >
+                      </div>
+                    </td>      
+                    <td> 
+                      <div class="col">
+                      <input type="text" formControlName="descripcion" class="form-control" placeholder="Descripcion">
+                      </div>
+                    </td>               
+                    <td>
+                      <div class="col">
+                     <input type="text" formControlName="montoactual" class="form-control" placeholder="Monto actual">
+                    </div>
+                    </td>
+                    <td>
+                      <div class="dropdown show">
+                    <a  formControlName="estado" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Seleccione 
+                    </a>
+                
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Entrego con daños</a>
+                    <a class="dropdown-item" href="#">No entrego</a>
+                    <a class="dropdown-item" href="#">Entrego</a>
+                  </div>
+                </div>
+              </td>
+                <td> 
+                  <div class="col">
+                  <input formControlName="penalidad" type="text" class="form-control" placeholder="Penalidad">
+                </div>
+                </td>                      
+              </tr>
+              <tr> 
+              <td> 
+            
+            </td>
+            <td> 
+            
+            </td> 
+            <td> 
+             
+            </td> 
+            
+            <td > 
+              <label for="floatingInputGrid">Total:</label>
+            
+            <td>
+         
+              <div class="col">
+            <input type="text" formControlName="total" class="form-control" placeholder="S/ 00.00">
+            </div>
+            </td>                       
+          </tr>
+
+
+
+            </tbody>
+            
+          </table>
+        </div> 
+       
+      </div> 
+    </div>
+  </form>  
+  
+ 
+  
+    <div class="container-fluid h-100">
+      <div class="row w-100">
+        <div class="col">
+          <button (click)="onGuardar()" class="btn btn-outline-primary center block">Guardar</button>
+          <button (click)="onAnular()" class="btn btn-outline-primary center block">Anular</button>
+          <button (click)="onEliminar()" class="btn btn-outline-primary center block">Eliminar</button>
+          <button (click)="onCancelar()" class="btn btn-outline-primary center block">Cancelar</button>
+        </div>
+      </div>
+  
+    </div>
+  
+  </div>  
+
+
+  
+            
+         
+            
+       
+        
+     
+ 
