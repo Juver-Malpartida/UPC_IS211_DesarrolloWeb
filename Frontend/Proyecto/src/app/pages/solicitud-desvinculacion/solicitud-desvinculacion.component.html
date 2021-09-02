@@ -65,13 +65,16 @@
                     </div>
                     <label for="motivo" class="col-sm-1 col-form-label">Motivo</label>
                     <div class="col-sm-3">
-                        <input id="motivo" type="text" formControlName="motivo" class="form-control">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccione un motivo</option>
+                            <option value="1">Término de contrato</option>
+                            <option value="2">Rendimiento</option>
+                            <option value="3">Indisciplina</option>
+                        </select>
                     </div>
                     <div class="form-group col-sm-4 custom-file">
                         <input id="adjuntarArchivos" type="file" formControlName="archivos" class="form-control"
                             lang="es">
-                        <!-- <label for="formFile" class="form-label">Default file input example</label> -->
-                        <!-- <input class="form-control" type="file" id="formFile"> -->
                     </div>
                 </div>
                 <div class="row">
