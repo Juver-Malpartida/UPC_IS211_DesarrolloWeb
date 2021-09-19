@@ -1,0 +1,127 @@
+CREATE PROC SNP_Consulta_T_AREA
+AS
+BEGIN
+
+	SELECT TOP (1000) IdArea
+		  ,Descripcion
+		  ,IdIprArea
+		  ,Estado
+		  ,UsuarioModificacion
+		  ,FechaModificacion
+	  FROM Anddes.dbo.T_Area
+END
+
+-----------------------
+CREATE PROC SNP_Consulta_T_Cargo
+AS
+BEGIN
+SELECT TOP (1000) IdCargo
+      ,Descripcion
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM T_Cargo
+END
+----------------------
+CREATE PROC SNP_Consulta_T_Contrato
+AS
+BEGIN
+SELECT TOP (1000) IdContrato
+      ,NumeroContrato
+      ,FechaInicioCont
+      ,FechaFinCont
+      ,FechaRegistroCont
+      ,SueldoActual
+      ,MonedaPago
+      ,IdEmpleado
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM T_Contrato
+END
+--------------------
+CREATE PROC SNP_Consulta_T_Empleado
+AS
+BEGIN
+SELECT TOP (1000) IdEmpleado
+      ,Foto
+      ,NombreEmpleado
+      ,IdCargo
+      ,IdArea
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM T_Empleado
+END
+-------------------
+CREATE PROC SNP_Consulta_T_EmpleadoItem
+AS
+BEGIN
+SELECT TOP (1000) IdEmpItem
+      ,IdEmpleado
+      ,IdItem
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM T_EmpleadoItem
+END
+------------------
+CREATE PROC SNP_Consulta_T_Item
+AS
+BEGIN
+SELECT TOP (1000) IdItem
+      ,Descripcion
+      ,UnidadMedida
+      ,Moneda
+      ,Imagen
+      ,AfectoImpuesto
+      ,PrecioUnitarioDolares
+      ,PrecioUnitarioLocal
+      ,IdArea
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM T_Item
+END
+----------------------
+CREATE PROC SNP_Consulta_T_SolicitudSede
+AS
+BEGIN
+SELECT TOP (1000) IdSolCese
+      ,IdContrato
+      ,MotivoCese
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM T_SolicitudSede
+END
+
+----------------------
+
+CREATE PROC SNP_Consulta_T_SolicitudSedeDetalle
+AS
+BEGIN
+SELECT TOP (1000) IdSolCese
+      ,Secuencia
+      ,IdEmpItem
+      ,Monto
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM Anddes.dbo.T_SolicitudSedeDetalle
+END
+
+--------------------
+CREATE PROC SNP_Consulta_T_TipoArea
+AS
+BEGIN
+SELECT TOP (1000) IdTipArea
+      ,Descripcion
+      ,Estado
+      ,UsuarioModificacion
+      ,FechaModificacion
+  FROM T_TipoArea
+END
+
+
+
