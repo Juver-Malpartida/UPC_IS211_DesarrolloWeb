@@ -10,15 +10,27 @@ namespace DBContext
 {
     public class SolicitudCeseRepository : BaseRepository, ISolicitudCeseRepository
     {
-        public List<EntitySolicitudCese> GetSolicitudes()
+        public BaseResponse<List<EntitySolicitudCese>> GetSolicitudes()
         {
-            var returnEntity = new List<EntitySolicitudCese>();
-            using (var db = GetSqlConnection())
+            var response = new BaseResponse<List<EntitySolicitudCese>>();
+
+            try
             {
-                const string sql = @"SNP_Consulta_T_SolicitudSede";
-                returnEntity = db.Query<EntitySolicitudCese>(sql, commandType: CommandType.StoredProcedure).ToList();
+                using var db = GetSqlConnection();
+                List<EntitySolicitudCese> returnEntity = db.Query<EntitySolicitudCese>("SNP_Consulta_T_SolicitudSede", commandType: CommandType.StoredProcedure).DefaultIfEmpty().ToList();
+                response.IsSuccess = true;
+                response.ErrorCode = string.Empty;
+                response.ErrorMessage = string.Empty;
+                response.Data = returnEntity;
             }
-            return returnEntity;
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.ErrorCode = "0001";
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+            }
+            return response;
         }
     }
 }

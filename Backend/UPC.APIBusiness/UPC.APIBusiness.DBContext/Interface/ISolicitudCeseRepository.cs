@@ -7,6 +7,6 @@ namespace DBContext
 {
     public interface ISolicitudCeseRepository
     {
-        List<EntitySolicitudCese> GetSolicitudes();
+        BaseResponse<List<EntitySolicitudCese>> GetSolicitudes();
     }
 }
