@@ -17,7 +17,8 @@ export class LoginComponent {
   login() {
     console.log(this.email);
     console.log(this.password);
-    this.route.navigate(['nuevo']);
+    // this.route.navigate(['nuevo']);
+    this.route.navigate(['']);
 
 
   }
