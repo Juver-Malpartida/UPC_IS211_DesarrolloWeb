@@ -12,6 +12,7 @@ import { SolicitudDesvinculacionComponent } from './pages/solicitud-desvinculaci
 import { ListarEmpleadosComponent } from './pages/listar-empleados/listar-empleados.component';
 import { AsignacionServiciosComponent } from './pages/asignacion-servicios/asignacion-servicios.component';
 import { ResumenHojaRutaComponent } from './pages/resumen-hoja-ruta/resumen-hoja-ruta.component';
+import { ListaSolicitudesComponent} from './pages/lista-solicitudes/lista-solicitudes.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ResumenHojaRutaComponent } from './pages/resumen-hoja-ruta/resumen-hoja
     SolicitudDesvinculacionComponent,
     ListarEmpleadosComponent,
     AsignacionServiciosComponent,
-    ResumenHojaRutaComponent
+    ResumenHojaRutaComponent,
+    ListaSolicitudesComponent,
   ],
 
   imports: [
