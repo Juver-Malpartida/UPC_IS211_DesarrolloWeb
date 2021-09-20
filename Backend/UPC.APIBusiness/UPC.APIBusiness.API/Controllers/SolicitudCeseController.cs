@@ -31,13 +31,29 @@ namespace UPC.APIBusiness.API.Controllers
         /// </summary>
         /// <returns></returns>
         [Produces("application/json")]
-        [SwaggerOperation("GetListSolicitud")]
+        [SwaggerOperation("GetSolicitudes")]
         [AllowAnonymous]
         [HttpGet]
-        [Route("GetListSolicitud")]
-        public IActionResult Get()
+        [Route("GetSolicitudes")]
+        public IActionResult GetSolicitudes()
         {
             var solicitudes = solicitudCeseRepository.GetSolicitudes();
+            if (solicitudes == null) return StatusCode(401);
+            return Json(solicitudes);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [Produces("application/json")]
+        [SwaggerOperation("GetSolicitud")]
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("GetSolicitud")]
+        public IActionResult GetSolicitud(int id)
+        {
+            var solicitudes = solicitudCeseRepository.GetSolicitud(id);
             if (solicitudes == null) return StatusCode(401);
             return Json(solicitudes);
         }

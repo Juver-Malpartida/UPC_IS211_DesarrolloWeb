@@ -10,15 +10,52 @@ namespace DBContext
 {
     public class SolicitudCeseRepository : BaseRepository, ISolicitudCeseRepository
     {
-        public List<EntitySolicitudCese> GetSolicitudes()
+        public BaseResponse<EntitySolicitudCese> GetSolicitud(int id)
         {
-            var returnEntity = new List<EntitySolicitudCese>();
-            using (var db = GetSqlConnection())
+            var response = new BaseResponse<EntitySolicitudCese>() { IsSuccess = true, ErrorCode = "", ErrorMessage = "" };
+            try
             {
-                const string sql = @"SNP_Consulta_T_SolicitudSede";
-                returnEntity = db.Query<EntitySolicitudCese>(sql, commandType: CommandType.StoredProcedure).ToList();
+                var solicitudes = GetSolicitudes();
+                if (!solicitudes.IsSuccess) throw new Exception("Inner GetSolicitudes method has failed.");
+                response.Data = solicitudes.Data.FirstOrDefault(x => x.IdSolCese == id);
             }
-            return returnEntity;
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.ErrorCode = "GetSolicitudException";
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+            }
+
+            return response;
+        }
+
+        public BaseResponse<List<EntitySolicitudCese>> GetSolicitudes()
+        {
+            var response = new BaseResponse<List<EntitySolicitudCese>>();
+
+            try
+            {
+                using var db = GetSqlConnection();
+                List<EntitySolicitudCese> returnEntity = db.Query<EntitySolicitudCese>("SNP_Consulta_T_SolicitudSede", commandType: CommandType.StoredProcedure).DefaultIfEmpty().ToList();
+                response.IsSuccess = true;
+                response.ErrorCode = string.Empty;
+                response.ErrorMessage = string.Empty;
+                response.Data = returnEntity;
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.ErrorCode = "0001";
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+            }
+            return response;
+        }
+
+        public BaseResponse<EntitySolicitudCese> Insert(EntitySolicitudCese solicitudCese)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -122,6 +122,7 @@ namespace API
 
             services.AddTransient<IEmpleadoRepository, EmpleadoRepository>();
             services.AddTransient<ISolicitudCeseRepository, SolicitudCeseRepository>();
+            services.AddTransient<IAreaRepository, AreaRepository>();
 
             // ----------------------------------------------------------------
             services.AddTransient<HttpClientAuthorizationDelegatingHandler>();
