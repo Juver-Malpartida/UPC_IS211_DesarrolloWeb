@@ -9,5 +9,8 @@ namespace DBContext
     {
         BaseResponse<List<EntityArea>> GetAreas();
         BaseResponse<EntityArea> Insert(EntityArea area, char tipoGeneracion);
+
+
+
     }
 }
