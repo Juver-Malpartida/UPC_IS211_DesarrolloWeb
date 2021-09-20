@@ -262,6 +262,30 @@
             <param name="app"></param>
             <param name="env"></param>
         </member>
+        <member name="T:UPC.APIBusiness.API.Controllers.AreaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.AreaController.#ctor(DBContext.IAreaRepository)">
+            <summary>
+            
+            </summary>
+            <param name="areaRepository"></param>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.AreaController.GetAreas">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.AreaController.Insert(DBEntity.EntityArea)">
+            <summary>
+            
+            </summary>
+            <param name="area"></param>
+            <returns></returns>
+        </member>
         <member name="T:UPC.APIBusiness.API.Controllers.EmpleadoController">
             <summary>
             
@@ -290,7 +314,13 @@
             </summary>
             <param name="solicitudCeseRepository"></param>
         </member>
-        <member name="M:UPC.APIBusiness.API.Controllers.SolicitudCeseController.Get">
+        <member name="M:UPC.APIBusiness.API.Controllers.SolicitudCeseController.GetSolicitudes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.SolicitudCeseController.GetSolicitud(System.Int32)">
             <summary>
             
             </summary>
