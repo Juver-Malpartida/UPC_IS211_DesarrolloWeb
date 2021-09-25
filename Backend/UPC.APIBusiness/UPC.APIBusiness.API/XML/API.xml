@@ -326,6 +326,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:UPC.APIBusiness.API.Controllers.UserController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.UserController.#ctor(DBContext.IUserRepository)">
+            <summary>
+            
+            </summary>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.UserController.Login(DBEntity.EntityLoginRequest)">
+            <summary>
+            
+            </summary>
+            <param name="loginRequest"></param>
+            <returns></returns>
+        </member>
         <member name="T:UPC.E31A.APIBusiness.API.Security.AccessToken">
             <summary>
             
