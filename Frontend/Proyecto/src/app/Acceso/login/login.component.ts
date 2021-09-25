@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,18 +10,33 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-  email: string='';
 
-  password: string='';
+  constructor(private route:Router, private fb: FormBuilder, private readonly us: UserService) {}
 
-  constructor(private route:Router) {}
+  loginForm = this.fb.group({
+    loginusuario: ['', Validators.required],
+    passwordusuario: ['', Validators.required]
+  });
 
-  login() {
-    console.log(this.email);
-    console.log(this.password);
-    // this.route.navigate(['nuevo']);
-    this.route.navigate(['']);
+  login(data: any) {
+    this.us.login(data).subscribe((resp: any) => {
+      if(resp.isSuccess) {
+        sessionStorage.setItem('token',  resp.data.token);
+        sessionStorage.setItem('user', resp.data.nombres);
+        this.route.navigateByUrl('/listarsolicitud', { skipLocationChange: false}).then(() => {
+          this.route.navigate(['listarsolicitud']);
+          window.location.reload();
+        })
+      } else {
+        alert("Usuario o contraseña incorrectos");
+      }
+    });
+  }
 
-
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.login(this.loginForm.value);
+    }
+    
   }
 }

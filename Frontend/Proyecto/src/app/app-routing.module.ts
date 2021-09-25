@@ -9,12 +9,14 @@ import { ResumenHojaRutaComponent } from './pages/resumen-hoja-ruta/resumen-hoja
 import { ListaSolicitudesComponent } from './pages/lista-solicitudes/lista-solicitudes.component';
 import { SolicitudDesvinculacionComponent } from './pages/solicitud-desvinculacion/solicitud-desvinculacion.component';
 import { AsignacionHerramComponent } from './pages/asignacion-herram/asignacion-herram.component';
+import { LogoutComponent } from './Acceso/logout/logout.component';
 
 
 
 const appRoutes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: "login", component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
   { path: "nuevo", component: NuevoComponent, patMatch: "full" },
   { path: "solicitud", component: SolicitudDesvinculacionComponent },
   { path: "listarempleados", component: ListarEmpleadosComponent },

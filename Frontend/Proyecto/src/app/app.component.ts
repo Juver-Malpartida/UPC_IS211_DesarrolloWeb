@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Proyecto';
+  title = 'Anddes';
+  token = sessionStorage.getItem('token');
+  user = sessionStorage.getItem('user');
 }
