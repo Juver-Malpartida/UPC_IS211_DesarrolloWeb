@@ -14,6 +14,7 @@ import { AsignacionServiciosComponent } from './pages/asignacion-servicios/asign
 import { ResumenHojaRutaComponent } from './pages/resumen-hoja-ruta/resumen-hoja-ruta.component';
 import { ListaSolicitudesComponent} from './pages/lista-solicitudes/lista-solicitudes.component';
 import { LogoutComponent } from './Acceso/logout/logout.component'
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { LogoutComponent } from './Acceso/logout/logout.component'
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

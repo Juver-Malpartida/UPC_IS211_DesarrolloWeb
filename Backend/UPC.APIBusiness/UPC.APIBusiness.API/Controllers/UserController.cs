@@ -48,7 +48,13 @@ namespace UPC.APIBusiness.API.Controllers
             string numeroDocument = response.Data.documentoidentidad;
             string jsonResponse = await new Authentication().GenerateToken(codigoUsuario, numeroDocument);
             AccessToken token = JsonConvert.DeserializeObject<AccessToken>(jsonResponse);
-            response.Data.token = token.access_token;
+            if (token == null)
+            {
+                response.IsSuccess = false;
+                return Json(response);
+            }
+
+            response.Data.token = token?.access_token;
             return Json(response);
         }
     }

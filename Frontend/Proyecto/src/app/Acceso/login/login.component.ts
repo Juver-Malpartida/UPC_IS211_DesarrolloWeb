@@ -15,7 +15,8 @@ export class LoginComponent {
 
   loginForm = this.fb.group({
     loginusuario: ['', Validators.required],
-    passwordusuario: ['', Validators.required]
+    passwordusuario: ['', Validators.required],
+    recaptchaReactive: ['', Validators.required]
   });
 
   login(data: any) {
