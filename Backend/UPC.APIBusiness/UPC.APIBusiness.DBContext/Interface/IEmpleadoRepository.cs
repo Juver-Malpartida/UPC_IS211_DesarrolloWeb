@@ -8,5 +8,6 @@ namespace DBContext
     public interface IEmpleadoRepository
     {
         BaseResponse<List<EntityEmpleado>> GetEmpleados();
+        BaseResponse<EntityEmpleado> InsertEmpleado(EntityEmpleado empleado);
     }
 }

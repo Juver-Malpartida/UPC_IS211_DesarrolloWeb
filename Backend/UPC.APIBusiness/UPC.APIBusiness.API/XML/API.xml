@@ -327,6 +327,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.EmpleadoController.Insert(DBEntity.EntityEmpleado)">
+            <summary>
+            
+            </summary>
+            <param name="empleado"></param>
+            <returns></returns>
+        </member>
         <member name="T:UPC.APIBusiness.API.Controllers.SolicitudCeseController">
             <summary>
             

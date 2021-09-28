@@ -1,4 +1,5 @@
 ﻿using DBContext;
+using DBEntity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
@@ -14,6 +15,7 @@ namespace UPC.APIBusiness.API.Controllers
     /// </summary>
     [Produces("application/json")]
     [Route("api/Empleado")]
+    [ApiController]
     public class EmpleadoController : Controller
     {
         private readonly IEmpleadoRepository empleadoRepository;
@@ -41,6 +43,25 @@ namespace UPC.APIBusiness.API.Controllers
 
             if (ret == null)
                 return StatusCode(401);
+
+            return Json(ret);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="empleado"></param>
+        /// <returns></returns>
+        [Produces("application/json")]
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("InsertEmpleado")]
+        public ActionResult Insert(EntityEmpleado empleado)
+        {
+            var ret = empleadoRepository.InsertEmpleado(empleado);
+
+            if (ret == null)
+                return StatusCode(501);
 
             return Json(ret);
         }
