@@ -15,7 +15,7 @@ import { ResumenHojaRutaComponent } from './pages/resumen-hoja-ruta/resumen-hoja
 import { ListaSolicitudesComponent} from './pages/lista-solicitudes/lista-solicitudes.component';
 import { LogoutComponent } from './Acceso/logout/logout.component'
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     RecaptchaModule,
     RecaptchaFormsModule,
-    NgxPaginationModule
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,20 +1,10 @@
 <div class="container pt-3"> 
   <div class="row">
     <div class="col-sm-8">
-      <h1>Listado <span class="badge bg-secondary">de Solicitudes</span></h1>
-    </div>
-    <div class="col-sm-4">
-        <div class="input-group">
-            <div class="form-inline">
-                <input type="search" id="form1" class="form-control" placeholder="Buscar..." />
-            </div>
-            <button type="button" class="btn btn-primary">
-                <i class="bi bi-search"></i>
-            </button>
-        </div>
+      <h1>Listado de Solicitudes</h1>
     </div>
 </div>
-      <table class="table ,nav-link active" id="ps1" >
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
         <thead> 
           <tr>
             <th scope="col">Item</th>
@@ -27,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let s of solicitudes | paginate: { itemsPerPage: 10, currentPage: p } ; let i = index;">
+          <tr *ngFor="let s of solicitudes; let i = index;">
             <th scope="row">{{i+1}}</th>
             <td>{{s['numeroContrato']}}</td>
             <td>{{s['estadoSolicitud']}}</td>
@@ -44,7 +34,6 @@
 
         </tbody>
       </table>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>  
     </div>
 
 
