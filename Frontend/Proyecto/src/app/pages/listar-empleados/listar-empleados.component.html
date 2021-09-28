@@ -30,8 +30,8 @@
                 </thead>
                 <tbody >
                    
-                    <tr *ngFor="let e of empleados">
-                        <td>{{e['idEmpleado']}}</td>
+                    <tr *ngFor="let e of empleados | paginate: { itemsPerPage: 10, currentPage: p } ; let i = index;">
+                        <td>{{i+1}}</td>
                         <td>{{e['nombreEmpleado']}}</td>
                         <td>{{e['descArea']}}</td>
                         <td>{{e['descCArgo']}}</td>
@@ -39,7 +39,8 @@
                     
                 </tbody>
             </table>
-            <div class="clearfix">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <!-- <div class="clearfix">
                 <div class="hint-text">Mostrando <b>5</b> de <b>15</b> registros</div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
@@ -58,7 +59,7 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

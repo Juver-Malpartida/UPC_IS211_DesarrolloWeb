@@ -8,6 +8,7 @@ import { EmpleadoService } from 'src/app/services/empleado.service';
 })
 export class ListarEmpleadosComponent implements OnInit {
 
+  p: number = 1;
   empleados = [];
 
   constructor(private readonly em: EmpleadoService) { }

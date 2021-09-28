@@ -1,4 +1,5 @@
 ﻿using DBContext;
+using DBEntity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
@@ -14,6 +15,7 @@ namespace UPC.APIBusiness.API.Controllers
     /// </summary>
     [Produces("application/json")]
     [Route("api/Solicitud")]
+    [ApiController]
     public class SolicitudCeseController : Controller
     {
         private readonly ISolicitudCeseRepository solicitudCeseRepository;
@@ -56,6 +58,25 @@ namespace UPC.APIBusiness.API.Controllers
             var solicitudes = solicitudCeseRepository.GetSolicitud(id);
             if (solicitudes == null) return StatusCode(401);
             return Json(solicitudes);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="solicitudCese"></param>
+        /// <returns></returns>
+        [Produces("application/json")]
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("InsertSolicitud")]
+        public ActionResult Insert(EntitySolicitudCese solicitudCese)
+        {
+            var ret = solicitudCeseRepository.Insert(solicitudCese);
+
+            if (ret == null)
+                return StatusCode(501);
+
+            return Json(ret);
         }
     }
 }

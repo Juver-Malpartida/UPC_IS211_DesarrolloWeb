@@ -286,6 +286,30 @@
             <param name="area"></param>
             <returns></returns>
         </member>
+        <member name="T:UPC.APIBusiness.API.Controllers.ContratoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.ContratoController.#ctor(DBContext.IContratoRepository)">
+            <summary>
+            
+            </summary>
+            <param name="contratoRepository"></param>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.ContratoController.GetContratos">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.ContratoController.Insert(DBEntity.EntityContrato)">
+            <summary>
+            
+            </summary>
+            <param name="contrato"></param>
+            <returns></returns>
+        </member>
         <member name="T:UPC.APIBusiness.API.Controllers.EmpleadoController">
             <summary>
             
@@ -324,6 +348,13 @@
             <summary>
             
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UPC.APIBusiness.API.Controllers.SolicitudCeseController.Insert(DBEntity.EntitySolicitudCese)">
+            <summary>
+            
+            </summary>
+            <param name="solicitudCese"></param>
             <returns></returns>
         </member>
         <member name="T:UPC.APIBusiness.API.Controllers.UserController">

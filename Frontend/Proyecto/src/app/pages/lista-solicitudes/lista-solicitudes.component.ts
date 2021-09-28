@@ -9,14 +9,15 @@ import { SolicitudceseService} from 'src/app/services/solicitudcese.service';
 })
 export class ListaSolicitudesComponent implements OnInit {
 
-  solicitud = [];
+  p: number = 1;
+  solicitudes = [];
 
   constructor(private readonly em: SolicitudceseService ) { }
 
   __getListSolicitud() {
      this.em.__getListSolicitud().subscribe((rest: any) => {
       
-       this.solicitud = rest.data;
+       this.solicitudes = rest.data;
        console.log(rest)
      })
 }

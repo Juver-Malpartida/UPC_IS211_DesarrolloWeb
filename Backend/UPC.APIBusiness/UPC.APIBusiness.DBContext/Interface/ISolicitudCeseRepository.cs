@@ -7,8 +7,8 @@ namespace DBContext
 {
     public interface ISolicitudCeseRepository
     {
-        BaseResponse<List<EntitySolicitudCese>> GetSolicitudes();
-        BaseResponse<EntitySolicitudCese> GetSolicitud(int id);
+        BaseResponse<List<EntitySolicitudResponse>> GetSolicitudes();
+        BaseResponse<EntitySolicitudResponse> GetSolicitud(int id);
         BaseResponse<EntitySolicitudCese> Insert(EntitySolicitudCese solicitudCese);
     }
 }

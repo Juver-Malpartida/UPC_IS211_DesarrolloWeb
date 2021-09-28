@@ -17,7 +17,7 @@ namespace DBContext
             try
             {
                 using var db = GetSqlConnection();
-                List<EntityArea> returnEntity = db.Query<EntityArea>("SNP_Consulta_T_AREA", commandType: CommandType.StoredProcedure).DefaultIfEmpty().ToList();
+                List<EntityArea> returnEntity = db.Query<EntityArea>("SNP_Consulta_T_AREA", commandType: CommandType.StoredProcedure).ToList();
                 response.IsSuccess = true;
                 response.ErrorCode = string.Empty;
                 response.ErrorMessage = string.Empty;
@@ -28,7 +28,7 @@ namespace DBContext
                 response.IsSuccess = false;
                 response.ErrorCode = "Unknown error";
                 response.ErrorMessage = ex.Message;
-                response.Data = null;
+                response.Data = (List<EntityArea>)Enumerable.Empty<EntityArea>();
             }
             return response;
         }

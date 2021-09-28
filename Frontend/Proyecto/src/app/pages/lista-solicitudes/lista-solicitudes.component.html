@@ -27,13 +27,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let s of solicitud">
-            <th scope="row">1</th>
-            <td>SC-0000345</td>
-            <td>Completo</td>
-            <td>Williams Colan Febres</td>
-            <td>2021-08-12</td>
-            <td>2021-08-15</td>
+          <tr *ngFor="let s of solicitudes | paginate: { itemsPerPage: 10, currentPage: p } ; let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td>{{s['numeroContrato']}}</td>
+            <td>{{s['estadoSolicitud']}}</td>
+            <td>{{s['nombresEmpleado']}}</td>
+            <td>{{s['fechaSolicitud']}}</td>
+            <td>{{s['fechaCese']}}</td>
             <td>
                 <!-- <a href="#" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-lg fa-eye text-primary"></i></a>&nbsp; -->
                 <a href="/asignacionherram/1" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-lg fa-edit text-warning"></i></a>&nbsp;
@@ -44,7 +44,7 @@
 
         </tbody>
       </table>
-  
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>  
     </div>
 
 

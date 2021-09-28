@@ -10,5 +10,6 @@ namespace DBEntity
         public int IdContrato { get; set; }
         public string MotivoCese { get; set; }
         public char Estado { get; set; }
+        public DateTime FechaCese { get; set; }
     }
 }
