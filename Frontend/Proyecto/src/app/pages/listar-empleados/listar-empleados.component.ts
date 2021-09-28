@@ -8,15 +8,13 @@ import { EmpleadoService } from 'src/app/services/empleado.service';
 })
 export class ListarEmpleadosComponent implements OnInit {
 
-  empleado = [];
+  empleados = [];
 
   constructor(private readonly em: EmpleadoService) { }
 
   __getListEmpleado() {
     this.em.__getListEmpleado().subscribe((rest: any) => {
-
-      this.empleado = rest;
-      console.log(rest)
+      this.empleados = rest.data;
     })
   }
 
