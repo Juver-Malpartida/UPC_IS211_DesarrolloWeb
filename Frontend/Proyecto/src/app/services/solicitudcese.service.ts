@@ -9,6 +9,6 @@ export class SolicitudceseService {
   constructor(private readonly http: HttpClient) { }
 
   __getListSolicitud() {
-    return this.http.get('https://localhost:44309/api/Solicitud/GetListSolicitud');
+    return this.http.get('https://localhost:44309/api/Solicitud/GetSolicitudes');
 }
 }

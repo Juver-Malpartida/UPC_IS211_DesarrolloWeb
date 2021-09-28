@@ -16,7 +16,7 @@ export class ListaSolicitudesComponent implements OnInit {
   __getListSolicitud() {
      this.em.__getListSolicitud().subscribe((rest: any) => {
       
-       this.solicitud = rest;
+       this.solicitud = rest.data;
        console.log(rest)
      })
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmpleadoService} from 'src/app/services/empleado.service';
+import { EmpleadoService } from 'src/app/services/empleado.service';
 
 @Component({
   selector: 'app-listar-empleados',
@@ -10,19 +10,19 @@ export class ListarEmpleadosComponent implements OnInit {
 
   empleado = [];
 
-  constructor(private readonly em: EmpleadoService ) { }
+  constructor(private readonly em: EmpleadoService) { }
 
   __getListEmpleado() {
-     this.em.__getListEmpleado().subscribe((rest: any) => {
-      
-       this.empleado = rest;
-       console.log(rest)
-     })
-}
+    this.em.__getListEmpleado().subscribe((rest: any) => {
 
-ngOnInit(): void {
+      this.empleado = rest;
+      console.log(rest)
+    })
+  }
 
-  this.__getListEmpleado();
-}
+  ngOnInit(): void {
+
+    this.__getListEmpleado();
+  }
 
 }
