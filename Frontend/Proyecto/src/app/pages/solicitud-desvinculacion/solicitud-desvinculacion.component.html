@@ -3,38 +3,37 @@
         <div class="container p-3 border">
             <h3>Datos del empleado</h3>
 
-            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Buscar
-                empleado</button>
+            <button (click)="ShowBuscarEmpleadosModal()" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#empleadosModal">Buscar empleado</button>
             <div formGroupName="empleado">
                 <div class="mb-3 row">
                     <label for="name" class="col-sm-1 col-form-label">Nombres</label>
                     <div class="col-sm-11">
-                        <input id="name" type="text" formControlName="nombres" class="form-control"
-                            placeholder="Juan Perez" readonly />
+                        <input readonly id="name" type="text" formControlName="nombres" class="form-control"
+                            placeholder="" />
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="area" class="col-sm-1 col-form-label">Área</label>
                     <div class="col-sm-5">
                         <input readonly id="area" type="text" formControlName="area" class="form-control"
-                            placeholder="Contabilidad">
+                            placeholder="">
                     </div>
                     <label for="cargo" class="col-sm-1 col-form-label">Cargo</label>
                     <div class="col-sm-5">
                         <input readonly id="cargo" type="text" formControlName="cargo" class="form-control"
-                            placeholder="Asistente">
+                            placeholder="">
                     </div>
                 </div>
                 <div class="row">
                     <label for="fechaInicio" class="col-sm-1">Fecha inicio</label>
                     <div class="col-sm-5">
                         <input readonly id="fechaInicio" type="date" formControlName="fechaInicio" class="form-control"
-                            placeholder="09/24/2010">
+                            placeholder="">
                     </div>
                     <label for="fechaFin" class="col-sm-1 col-form-label">Fecha fin</label>
                     <div class="col-sm-5">
                         <input readonly id="fechaFin" type="date" formControlName="fechaFin" class="form-control"
-                            placeholder="09/24/2021">
+                            placeholder="">
                     </div>
                 </div>
             </div>
@@ -46,7 +45,7 @@
                     <label for="numero" class="col-sm-1 col-form-label">Número</label>
                     <div class="col-sm-3">
                         <input id="numero" type="text" formControlName="numero" class="form-control"
-                            placeholder="SC-00234" readonly>
+                            placeholder="" readonly>
                     </div>
                     <label for="estado" class="col-sm-1 col-form-label">Estado</label>
                     <div class="col-sm-3">
@@ -67,11 +66,9 @@
                     </div>
                     <label for="motivo" class="col-sm-1 col-form-label">Motivo</label>
                     <div class="col-sm-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Seleccione un motivo</option>
-                            <option value="1">Término de contrato</option>
-                            <option value="2">Rendimiento</option>
-                            <option value="3">Indisciplina</option>
+						<select class="form-select" formControlName="motivo" aria-label="Default select example">
+                            <option [ngValue]="null" selected disabled>Seleccione un motivo</option>
+                            <option *ngFor="let motivo of motivosCese" [ngValue]="motivo.desc">{{motivo.desc}}</option>
                         </select>
                     </div>
                     <div class="form-group col-sm-4 custom-file">
@@ -98,19 +95,17 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="empleadosModal" tabindex="-1" aria-labelledby="empleadosModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <app-listar-empleados></app-listar-empleados>
+                <app-listar-empleados *ngIf="isBuscarEmpleadosModalVisible" (empleadoSelectedEvent)="handleEmpleadoSelectedEvent($event)"></app-listar-empleados>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

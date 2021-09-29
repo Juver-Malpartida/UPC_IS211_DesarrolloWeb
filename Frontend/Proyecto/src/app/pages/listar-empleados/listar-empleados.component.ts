@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 
@@ -12,7 +12,7 @@ export class ListarEmpleadosComponent implements OnInit, OnDestroy {
   empleados = [];
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
-  
+  @Output() empleadoSelectedEvent = new EventEmitter();
 
   constructor(private readonly em: EmpleadoService) { }
 
@@ -35,4 +35,7 @@ export class ListarEmpleadosComponent implements OnInit, OnDestroy {
     this.__getListEmpleado();
   }
 
+  empleadoSelected(empleado: any) {
+    this.empleadoSelectedEvent.emit(empleado);
+  }
 }

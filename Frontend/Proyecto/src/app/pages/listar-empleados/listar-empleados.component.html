@@ -1,7 +1,7 @@
 <div class="container my-3">
     <div class="row">
         <div class="col-sm-8">
-            <h2>Lista de empleados</h2>
+            <h3>Listado de Empleados</h3>
         </div>
     </div>
     <div class="table-responsive">
@@ -20,7 +20,7 @@
                 </thead>
                 <tbody >
                    
-                    <tr *ngFor="let e of empleados ; let i = index;">
+                    <tr (click)="empleadoSelected(e)" *ngFor="let e of empleados ; let i = index;" data-bs-dismiss="modal">
                         <td>{{i+1}}</td>
                         <td>{{e['nombreEmpleado']}}</td>
                         <td>{{e['descArea']}}</td>
