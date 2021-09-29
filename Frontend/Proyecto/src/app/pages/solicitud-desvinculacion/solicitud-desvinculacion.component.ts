@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SolicitudceseService } from 'src/app/services/solicitudcese.service';
 
 @Component({
@@ -42,7 +43,7 @@ export class SolicitudDesvinculacionComponent implements OnInit {
 
   })
 
-  constructor(private fb: FormBuilder, private readonly ss: SolicitudceseService) { }
+  constructor(private fb: FormBuilder, private readonly ss: SolicitudceseService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -59,6 +60,12 @@ export class SolicitudDesvinculacionComponent implements OnInit {
       console.log(rest);
       if(rest.isSuccess) {
         alert("Solicitud de cese creada con ID: " + rest.data.idSolCese);
+
+        this.router.navigateByUrl('/listarsolicitud', { skipLocationChange: false}).then( () => {
+          this.router.navigate(['listarsolicitud']);
+          window.location.reload();
+        })
+
       } else {
         alert(rest.errorCode);
       }
