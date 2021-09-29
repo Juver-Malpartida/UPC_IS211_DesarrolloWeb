@@ -9,8 +9,6 @@ namespace DBEntity
         public int IdEmpleado { get; set; }
         public string Foto { get; set; }
         public string NombreEmpleado { get; set; }
-        public string descCArgo { get; set; }
-        public string descArea { get; set; }
         public int IdCargo { get; set; }
         public int IdArea { get; set; }
         public char Estado { get; set; }

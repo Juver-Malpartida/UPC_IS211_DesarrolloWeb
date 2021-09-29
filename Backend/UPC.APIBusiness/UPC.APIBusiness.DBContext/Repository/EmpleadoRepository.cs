@@ -10,14 +10,14 @@ namespace DBContext
 {
     public class EmpleadoRepository : BaseRepository, IEmpleadoRepository
     {
-        public BaseResponse<List<EntityEmpleado>> GetEmpleados()
+        public BaseResponse<List<EntityEmpleadoResponse>> GetEmpleados()
         {
-            var response = new BaseResponse<List<EntityEmpleado>>();
+            var response = new BaseResponse<List<EntityEmpleadoResponse>>();
 
             try
             {
                 using var db = GetSqlConnection();
-                List<EntityEmpleado> returnEntity = db.Query<EntityEmpleado>("SNP_Consulta_T_Empleado", commandType: CommandType.StoredProcedure).DefaultIfEmpty().ToList();
+                List<EntityEmpleadoResponse> returnEntity = db.Query<EntityEmpleadoResponse>("SNP_Consulta_T_Empleado", commandType: CommandType.StoredProcedure).DefaultIfEmpty().ToList();
                 response.IsSuccess = true;
                 response.ErrorCode = string.Empty;
                 response.ErrorMessage = string.Empty;
