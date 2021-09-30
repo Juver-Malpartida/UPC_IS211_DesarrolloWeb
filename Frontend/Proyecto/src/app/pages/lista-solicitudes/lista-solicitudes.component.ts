@@ -30,7 +30,8 @@ export class ListaSolicitudesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10
+      pageLength: 10,
+      order: [[0, 'desc']]
     };
     this.__getListSolicitud()
   }

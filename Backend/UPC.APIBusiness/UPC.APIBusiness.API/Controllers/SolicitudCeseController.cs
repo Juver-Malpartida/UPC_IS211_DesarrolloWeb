@@ -66,7 +66,6 @@ namespace UPC.APIBusiness.API.Controllers
         /// <param name="solicitudCese"></param>
         /// <returns></returns>
         [Produces("application/json")]
-        [AllowAnonymous]
         [HttpPost]
         [Route("InsertSolicitud")]
         public ActionResult Insert(EntitySolicitudCese solicitudCese)
