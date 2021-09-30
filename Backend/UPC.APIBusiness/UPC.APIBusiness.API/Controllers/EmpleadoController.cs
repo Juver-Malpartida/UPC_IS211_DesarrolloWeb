@@ -19,13 +19,16 @@ namespace UPC.APIBusiness.API.Controllers
     public class EmpleadoController : Controller
     {
         private readonly IEmpleadoRepository empleadoRepository;
+        private readonly IContratoRepository contratoRepository;
         /// <summary>
         /// 
         /// </summary>
         /// <param name="empleadoRepository"></param>
-        public EmpleadoController(IEmpleadoRepository empleadoRepository)
+        /// <param name="contratoRepository"></param>
+        public EmpleadoController(IEmpleadoRepository empleadoRepository, IContratoRepository contratoRepository)
         {
             this.empleadoRepository = empleadoRepository;
+            this.contratoRepository = contratoRepository;
         }
 
         /// <summary>
@@ -50,20 +53,23 @@ namespace UPC.APIBusiness.API.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="empleado"></param>
+        /// <param name="empleadoRequest"></param>
         /// <returns></returns>
         [Produces("application/json")]
         [AllowAnonymous]
         [HttpPost]
         [Route("InsertEmpleado")]
-        public ActionResult Insert(EntityEmpleado empleado)
+        public ActionResult Insert(EntityEmpleadoRequest empleadoRequest)
         {
-            var ret = empleadoRepository.InsertEmpleado(empleado);
+            var retEmpleado = empleadoRepository.InsertEmpleado(empleadoRequest.Empleado);
+            if (retEmpleado == null) return StatusCode(501);
 
-            if (ret == null)
-                return StatusCode(501);
+            empleadoRequest.Contrato.IdEmpleado = retEmpleado.Data.IdEmpleado;
 
-            return Json(ret);
+            var retContrato = contratoRepository.Insert(empleadoRequest.Contrato, 'N');
+            if (retContrato == null) return StatusCode(501);
+
+            return Json("Success");
         }
     }
 }

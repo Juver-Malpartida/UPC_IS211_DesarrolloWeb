@@ -315,11 +315,12 @@
             
             </summary>
         </member>
-        <member name="M:UPC.APIBusiness.API.Controllers.EmpleadoController.#ctor(DBContext.IEmpleadoRepository)">
+        <member name="M:UPC.APIBusiness.API.Controllers.EmpleadoController.#ctor(DBContext.IEmpleadoRepository,DBContext.IContratoRepository)">
             <summary>
             
             </summary>
             <param name="empleadoRepository"></param>
+            <param name="contratoRepository"></param>
         </member>
         <member name="M:UPC.APIBusiness.API.Controllers.EmpleadoController.Get">
             <summary>
@@ -327,11 +328,11 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:UPC.APIBusiness.API.Controllers.EmpleadoController.Insert(DBEntity.EntityEmpleado)">
+        <member name="M:UPC.APIBusiness.API.Controllers.EmpleadoController.Insert(DBEntity.EntityEmpleadoRequest)">
             <summary>
             
             </summary>
-            <param name="empleado"></param>
+            <param name="empleadoRequest"></param>
             <returns></returns>
         </member>
         <member name="T:UPC.APIBusiness.API.Controllers.SolicitudCeseController">
